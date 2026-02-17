@@ -1,10 +1,15 @@
 #team name-pywarriors
-def generate_threes(start: int, end: int) -> list[int]:
+def sanitize_email(raw_input: str) -> str:
     """
-    Generate a list of numbers from start to end, skipping by 3.
+    Clean an email string and validate basic structure.
     """
 
-    if start >= end:
-        return []
+    cleaned = raw_input.strip().lower()
 
-    return list(range(start, end, 3))
+    if cleaned == "":
+        return "Invalid Email"
+
+    if cleaned.count("@") != 1:
+        return "Invalid Email"
+
+    return cleaned
